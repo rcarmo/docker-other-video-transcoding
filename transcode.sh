@@ -10,8 +10,12 @@ if [ -z "${AUDIO_CODEC}" ]; then
    AUDIO_CODEC=AAC
 fi
 
-if [ -z "${VIDEO_CODEC}" ]; then 
-   VIDEO_CODEC=H.265
+if [ ! -z "${TARGET_BITRATE}" ]; then 
+   TARGET_BITRATE="--target $TARGET_BITRATE"
+fi
+
+if [ ! -z "${PRESET}" ]; then 
+   PRESET="--preset $PRESET"
 fi
 
 export WORKDIR="$PWD"
@@ -37,9 +41,9 @@ encode_file () {
         echo "====> Currently in $PWD" >> "$LOGFILE"
         echo "====> Transcoding $FILE -> $TARGET" >> "$LOGFILE" 
         if [ "$AUDIO_CODEC" != "EAC3" ]; then
-            stdbuf -oL -eL other-transcode --mp4 --hevc --mp4 "$FILE" --name "$TARGET" 2>> "$LOGFILE"
+            stdbuf -oL -eL other-transcode --mp4 --hevc        $TARGET_BITRATE $PRESET "$FILE" --name "$TARGET" 2>> "$LOGFILE"
         else
-            stdbuf -oL -eL other-transcode --mp4 --hevc --eac3 --mp4 "$FILE" --name "$TARGET" 2>> "$LOGFILE"
+            stdbuf -oL -eL other-transcode --mp4 --hevc --eac3 $TARGET_BITRATE $PRESET "$FILE" --name "$TARGET" 2>> "$LOGFILE"
         fi
         if [ $? -eq 0 ]; then
             if [ ! -z "$SCRATCH_FOLDER" ]; then

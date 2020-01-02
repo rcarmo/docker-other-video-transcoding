@@ -31,13 +31,6 @@ RUN apt-get update \
  && sudo gem install other_video_transcoding \
  && chmod +x /init /transcode
  
-# Goals (fine tuned to my personal setup)
-# * Convert everything to HEVC in mp4 envelope
-# * Keep the minimum amount of audio tracks
-# * Preserve 5.1 DTS if possible
-# * Transcode everything else to AC3 or Dolby 5.1
-# * Preserve EN/PT subtitles and chapter markers if possible
-
 # Allow user to set uid/gid for Docker process
 ENV PGID=1000
 ENV PUID=1000
@@ -46,7 +39,7 @@ ENV PAUSES="false"
 ENV AUDIO_CODEC="EAAC"
 ENV SCRATCH_FOLDER=""
 ENV RANDOM_PICK="false"
-ENV HOSTNAME="ffmpeg"
+ENV HOSTNAME="other-video-transcoder"
 
 WORKDIR /data
 VOLUME /data

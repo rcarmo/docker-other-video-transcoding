@@ -18,6 +18,7 @@ In short, your mileage may vary, and feedback/pull requests are welcome.
 docker run -it \
   -e PUID=1001 \
   -e PGID=1001 \
+  -e TARGET_BITRATE="1080p=5000" \
   -v "$PWD:/data" \
   --device /dev/dri \
   --cpuset-cpus 8-15 \
