@@ -19,14 +19,14 @@ docker run -it \
   -e PUID=1001 \
   -e PGID=1001 \
   -v "$PWD:/data" \
-  --device /dev/dri
+  --device /dev/dri \
   --cpuset-cpus 8-15 \
   rcarmo/other-video-transcoding
 ```
 
 This will go over all `*.mkv` files in the current working directory and transcode them to an `.mp4` envelope with EAC3 5.1 audio, ignoring subtitles and using only the specified CPU cores.
 
-Like the original container, _this was designed to be used in a batch/service context_, and will skip any file that has a companion with a `.lock` extension. It will (optionally) copy the original file to a scratch folder for working in, try to clean up the original files and `.log` files after it's done.
+Like the original container, _this was designed to be used in a batch/service context_, and will skip any file that has a companion with a `.lock` extension. It will (optionally) copy the original file to a scratch folder for working in, and try to clean up the original files and `.log` files after it's done.
 
 Also like the original, this downloads and adds `libdvdcss`, which is essential for DVD ripping--however, I have not tested encoding DVDs with this container (yet).
 
