@@ -28,6 +28,8 @@ This will go over all `*.mkv` files in the current working directory and transco
 
 Like the original container, _this was designed to be used in a batch/service context_, and will skip any file that has a companion with a `.lock` extension. It will (optionally) copy the original file to a scratch folder for working in, try to clean up the original files and `.log` files after it's done.
 
+Also like the original, this downloads and adds `libdvdcss`, which is essential for DVD ripping--however, I have not tested encoding DVDs with this container (yet).
+
 ## Using Hardware Acceleration
 
 My intent in building this container was to try out `ffmpeg` with hardware acceleration, but I only have Intel machines with QuickSync and `vaapi` support, so the amount of testing I was able to conduct has been limited so far.
