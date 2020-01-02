@@ -6,9 +6,9 @@
 [![](https://images.microbadger.com/badges/version/rcarmo/other-video-transcoding.svg)](https://microbadger.com/images/rcarmo/other-video-transcoding "Get your own version badge on microbadger.com")
 [![Build Status](https://travis-ci.org/rcarmo/docker-other-video-transcoding.svg?branch=master)](https://travis-ci.org/rcarmo/docker-other-video-transcoding)
 
-This is a container for running [Don Melton's `other-video-transcoding` scripts](https://github.com/donmelton/other_video_transcoding), based on my own [`handbrake` container](https://github.com/rcarmo/docker-handbrake).
+This is a container for running [Don Melton's most excellent `other-video-transcoding` scripts](https://github.com/donmelton/other_video_transcoding), based on my own [`handbrake` container](https://github.com/rcarmo/docker-handbrake).
 
-Unlike the `handbrake` version, which is based off battle-tested packages in Ubuntu LTS this one is largely untested (container-wise, that is--the transcoding logic in itself is well tuned) and is based on the Debian Buster `ruby` image, which has a relatively up to date `ffmpeg` build but may not be ideal.
+Unlike the `handbrake` version, which is based off battle-tested packages in Ubuntu LTS, this is largely untested (container-wise, that is--the transcoding logic in itself is very well tuned) and is based on the Debian Buster `ruby` image, which has a relatively up to date `ffmpeg` build but may not be ideal.
 
 In short, your mileage may vary, and feedback/pull requests are welcome.
 
