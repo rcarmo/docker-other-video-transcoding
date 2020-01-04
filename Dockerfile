@@ -7,7 +7,6 @@ MAINTAINER Rui Carmo https://github.com/rcarmo
 
 # The current official Ruby image is Debian buster, so we need to:
 # * Enable contrib (and non-free, for good measure)
-# * freshen it up a little
 # * add ffmpeg/ffprobe and mkvtoolnix/mkvpropedit
 # * rebuild libdvdcss so we can actually read DVDs
 
